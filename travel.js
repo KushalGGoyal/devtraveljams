@@ -82,12 +82,17 @@ window.onload = async function() {
   renderChecklist();
   getWeather(country);
 
-  // Attach event listener for Visa button
   document.getElementById('check-visa').addEventListener('click', () => {
     const passportCode = document.getElementById('passportSelect').value;
     const destinationCode = countryCodes[country] || country;
     showVisaInfo(passportCode, destinationCode, country);
   });
+
+  // Hugging Face Photo Detection button
+  const photoBtn = document.getElementById("identifyPhotoBtn");
+  if(photoBtn){
+    photoBtn.addEventListener("click", identifyLocation);
+  }
 };
 
 // --------------------
@@ -154,7 +159,7 @@ function updateMood() {
 }
 
 // --------------------
-// Visa Info (via RapidAPI Travel Buddy)
+// Visa Info
 // --------------------
 async function showVisaInfo(passportCode, destinationCode, countryName) {
   const infoElement = document.getElementById("visaInfo");
@@ -194,3 +199,7 @@ async function showVisaInfo(passportCode, destinationCode, countryName) {
     infoElement.innerText = "Error fetching visa info.";
   }
 }
+
+// --------------------
+// AI Itinerary
+// --------------------

@@ -1,35 +1,174 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-  color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    overflow: auto;
+    color: #fff;
+    background-color: #000;
 }
 
-header {
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+/* ---------------- Spline Fullscreen ---------------- */
+.background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150vw;
+    height: 150vh;
+    transform: translate(-50%, -50%) scale(1.6);
+    z-index: -1;
+    background-color: #000;
 }
 
-h1 {
-  margin: 0;
-}
-
+/* ---------------- Container ---------------- */
 .container {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem;
+    max-width: 1200px; /* Increased max-width for better layout */
+    margin: auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* ---------------- Header ---------------- */
+header {
+    text-align: center;
+    padding: 2rem;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 2rem;
+    box-shadow: none;
+    color: #ffffff;
 }
 
+header h1, header p {
+    color: #ffffff;
+    opacity: 1;
+    margin: 0.3rem 0;
+}
+
+/* ---------------- Cards ---------------- */
 .card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Add a blur effect */
+    padding: 2rem;
+    border-radius: 15px; /* Softer rounded edges */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    opacity: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* ---------------- Inputs & Select ---------------- */
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 1rem;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:disabled,
+select:disabled {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
+}
+
+select option {
+    color: #000;
+}
+
+/* ---------------- Buttons ---------------- */
+button {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 50px; /* More rounded buttons */
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    opacity: 1;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+}
+
+/* ---------------- Main layout ---------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .card {
+        flex: 1;
+    }
+}
+
+/* ---------------- OR Separator ---------------- */
+.or-separator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 1rem 0;
+    position: relative;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .or-separator {
+        display: flex;
+        align-items: center;
+        height: auto;
+        margin: 0 2rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .or-separator::before,
+    .or-separator::after {
+        content: '';
+        height: 100px;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        display: block;
+        margin: 1rem 0;
+    }
+}

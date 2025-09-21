@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Traveller App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🌍 AI Traveller App</h1>
+
+  <!-- Upload Photo -->
+  <section>
+    <h2>📸 Upload Photo to Detect Location</h2>
+    <input type="file" id="photoInput">
+    <button onclick="identifyLocation()">Identify Location</button>
+    <p id="locationResult"></p>
+  </section>
+
+  <!-- Weather Info -->
+  <section>
+    <h2>🌦 Weather & Clothing Suggestions</h2>
+    <input type="text" id="cityInput" placeholder="Enter city">
+    <button onclick="getWeather()">Get Weather</button>
+    <p id="weatherResult"></p>
+  </section>
+
+  <!-- Checklist -->
+  <section>
+    <h2>✅ Travel Checklist</h2>
+    <ul id="checklist"></ul>
+    <!-- Mood / Progress Bar -->
+    <div id="moodContainer" style="margin-top: 10px; width: 100%; background: #ddd; border-radius: 10px;">
+      <div id="moodBar" style="width: 0%; height: 25px; background: #4CAF50; border-radius: 10px;"></div>
+    </div>
+    <p id="moodText" style="margin-top: 5px; font-weight: bold;">Mood: 😐</p>
+  </section>
+
+  <!-- Visa & Travel Documents -->
+  <section>
+    <h2>🛂 Visa & Travel Documents</h2>
+    <select id="countrySelect">
+      <option value="">Select Country</option>
+      <option value="Japan">Japan</option>
+      <option value="France">France</option>
+      <option value="USA">USA</option>
+      <option value="Singapore">Singapore</option>
+    </select>
+    <button onclick="showVisaInfo(document.getElementById('countrySelect').value)">Show Info</button>
+    <p id="visaInfo"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
